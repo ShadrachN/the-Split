@@ -1,11 +1,10 @@
 import { createContext, useContext, useState } from 'react'
-import { SAMPLE_RESULTS } from './data/sampleResults.js'
 
 // Shared app state. Kept in memory only; saving in the browser is a later feature.
 const SplitsContext = createContext(null)
 
 export function SplitsProvider({ children }) {
-  const [results, setResults] = useState(SAMPLE_RESULTS)
+  const [results, setResults] = useState([])
   const [links, setLinks] = useState([])
 
   function addResult(result) {
