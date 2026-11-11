@@ -1,0 +1,67 @@
+/* ---------- Theme: declared once, used everywhere through var() ----------
+   Harmony: complementary. Base hue is navy (220), with its complement amber/orange (35-42).
+   Every color has a different lightness so the UI still reads in grayscale. */
+:root {
+  --color-dominant: hsl(220, 33%, 96%);   /* page background (60%) */
+  --color-surface: hsl(0, 0%, 100%);      /* cards (part of the 30%) */
+  --color-secondary: hsl(220, 60%, 22%);  /* header, navigation, PR badge (30%) */
+  --color-accent: hsl(35, 90%, 32%);      /* buttons and links only (10%) */
+  --color-highlight: hsl(42, 95%, 68%);   /* the PR bib card */
+  --color-ink: hsl(220, 40%, 10%);        /* body text */
+  --color-border: hsl(220, 15%, 50%);     /* field borders, dividers */
+  --color-error: hsl(0, 72%, 42%);        /* error messages and invalid fields */
+
+  /* Spacing scale: steps of 8 only */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+
+  /* Type: one typeface, two weights, three sizes */
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --size-body: 16px;
+  --size-title: 24px;
+  --size-display: 48px;
+  --weight-regular: 400;
+  --weight-bold: 700;
+
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-dominant);
+  color: var(--color-ink);
+  font-family: var(--font);
+  font-size: var(--size-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+}
+
+h1, h2 { margin: 0 0 var(--space-2); line-height: 1.25; }
+h1 { font-size: var(--size-title); }
+h2 { font-size: var(--size-body); font-weight: var(--weight-bold); }
+p { margin: 0 0 var(--space-2); max-width: 70ch; }
+
+a { color: var(--color-accent); font-weight: var(--weight-bold); }
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-2) var(--space-6);
+}
+
+.stack > * + * { margin-top: var(--space-3); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
