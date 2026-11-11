@@ -1,0 +1,11 @@
+.field + .field { margin-top: var(--space-3); }
+.field__label { display: block; font-weight: var(--weight-bold); }
+.field__hint { margin: 0; }
+.field__input {
+  display: block; width: 100%; margin-top: var(--space-1);
+  min-height: 48px; padding: var(--space-1) var(--space-2);
+  font: inherit; color: var(--color-ink); background: var(--color-surface);
+  border: 2px solid var(--color-border); border-radius: var(--radius);
+}
+.field--invalid .field__input { border-color: var(--color-error); }
+.field__error { margin: var(--space-1) 0 0; color: var(--color-error); font-weight: var(--weight-bold); }

@@ -1,0 +1,16 @@
+.header { background: var(--color-secondary); }
+.header__inner {
+  max-width: 1040px; margin: 0 auto; padding: var(--space-2);
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
+  align-items: center; justify-content: space-between;
+}
+.header__brand, .header__link {
+  color: var(--color-surface); text-decoration: none; font-weight: var(--weight-bold);
+}
+.header__brand { font-size: var(--size-title); }
+.header__link {
+  display: inline-block; padding: var(--space-1); margin-left: var(--space-1);
+  border-bottom: 3px solid transparent;
+}
+.header__link.active { border-bottom-color: var(--color-highlight); }
+.header :focus-visible { outline-color: var(--color-highlight); }
