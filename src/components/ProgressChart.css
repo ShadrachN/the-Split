@@ -1,0 +1,9 @@
+.chart { margin: 0; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart__axis { stroke: var(--color-border); stroke-width: 1; }
+.chart__line { fill: none; stroke: var(--color-secondary); stroke-width: 3; }
+.chart__dot { fill: var(--color-secondary); }
+.chart__dot--pr { fill: var(--color-highlight); stroke: var(--color-ink); stroke-width: 2; }
+.chart__value { font: var(--weight-bold) 16px var(--font); fill: var(--color-ink); }
+.chart__date { font: 16px var(--font); fill: var(--color-ink); }
+.chart figcaption { margin-top: var(--space-1); }

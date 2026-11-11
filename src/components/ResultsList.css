@@ -1,0 +1,11 @@
+.results { width: 100%; border-collapse: collapse; }
+.results th, .results td {
+  text-align: left; padding: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+}
+.results__pr td { font-weight: var(--weight-bold); }
+.results__badge {
+  margin-left: var(--space-1); padding: 0 var(--space-1);
+  background: var(--color-secondary); color: var(--color-surface);
+  border-radius: 4px; font-weight: var(--weight-bold);
+}

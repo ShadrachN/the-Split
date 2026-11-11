@@ -1,0 +1,11 @@
+.bib {
+  background: var(--color-highlight);
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  text-align: center;
+}
+.bib p { margin: 0 auto; }
+.bib__label { font-weight: var(--weight-bold); }
+.bib__mark { font-size: var(--size-display); font-weight: var(--weight-bold); line-height: 1.2; }
