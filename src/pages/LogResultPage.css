@@ -1,0 +1,7 @@
+.log-page { max-width: 560px; }
+.log-page__summary {
+  border: 2px solid var(--color-error); border-radius: var(--radius);
+  padding: var(--space-2); margin-bottom: var(--space-3); color: var(--color-error);
+}
+.log-page__summary h2 { margin: 0; }
+.log-page__actions { margin-top: var(--space-4); }
