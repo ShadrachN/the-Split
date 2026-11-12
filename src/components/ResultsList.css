@@ -7,5 +7,5 @@
 .results__badge {
   margin-left: var(--space-1); padding: 0 var(--space-1);
   background: var(--color-secondary); color: var(--color-surface);
-  border-radius: 4px; font-weight: var(--weight-bold);
+  border-radius: var(--radius-small); font-weight: var(--weight-bold);
 }

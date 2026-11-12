@@ -1,11 +1,22 @@
+import { useEffect, useRef, useState } from 'react'
 import { formatMark, formatDate } from '../data/marks.js'
 import './ProgressChart.css'
 
-const W = 600, H = 220, PAD_X = 48, PAD_TOP = 32, PAD_BOTTOM = 40
+const H = 220, PAD_X = 48, PAD_TOP = 32, PAD_BOTTOM = 40
 
 // Season progress as a line chart. For running events lower times are drawn higher,
 // so "up" always means "better".
 export default function ProgressChart({ event, results, prId }) {
+  // The SVG is drawn at the width of its container (1 unit = 1px),
+  // so the 16px labels stay 16px on phones instead of shrinking.
+  const ref = useRef(null)
+  const [W, setW] = useState(600)
+  useEffect(() => {
+    const observer = new ResizeObserver(([entry]) => setW(Math.round(entry.contentRect.width) || 600))
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
   const points = [...results].sort((a, b) => a.date.localeCompare(b.date))
   const score = (v) => (event.type === 'time' ? -v : v)
   const scores = points.map((p) => score(p.value))
@@ -18,7 +29,7 @@ export default function ProgressChart({ event, results, prId }) {
     points.map((p) => `${formatMark(event, p.value)} on ${formatDate(p.date)}`).join(', ')
 
   return (
-    <figure className="chart">
+    <figure className="chart" ref={ref}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={summary}>
         <line x1={PAD_X} x2={W - PAD_X} y1={H - PAD_BOTTOM + 8} y2={H - PAD_BOTTOM + 8} className="chart__axis" />
         <polyline className="chart__line"

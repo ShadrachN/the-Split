@@ -22,7 +22,9 @@ function matchSite(text) {
   if (url.protocol !== 'https:' && url.protocol !== 'http:') return null
   const host = url.hostname.toLowerCase()
   const site = SITES.find((s) => host === s.host || host.endsWith(`.${s.host}`))
-  return site ? site.name : null
+  // A bare home page (https://www.tfrrs.org/) is not a profile.
+  if (!site || url.pathname.replace(/\/+$/, '') === '') return null
+  return site.name
 }
 
 export default function OfficialLinksPage() {
@@ -37,7 +39,7 @@ export default function OfficialLinksPage() {
     // Decision: is it a TFRRS, MileSplit or Athletic.net link?
     if (!site) {
       setStatus('')
-      setError('Paste a full link that starts with https:// from TFRRS, MileSplit or Athletic.net.')
+      setError('Paste the full link to your profile page on TFRRS, MileSplit or Athletic.net, starting with https://.')
       return
     }
     addLink({ site, url: url.trim() })
@@ -59,7 +61,9 @@ export default function OfficialLinksPage() {
           <ul className="links-page__list">
             {links.map((l) => (
               <li key={l.id}>
-                <a href={l.url} target="_blank" rel="noreferrer">View on {l.site}</a>
+                <a href={l.url} target="_blank" rel="noreferrer">
+                  View on {l.site}<span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
                 <Button variant="secondary" onClick={() => removeLink(l.id)}
                   aria-label={`Remove ${l.site} link`}>Remove</Button>
               </li>

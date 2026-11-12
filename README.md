@@ -7,6 +7,8 @@ npm install
 npm run dev
 ```
 
+**Note for testing:** the app starts empty and keeps results only while the tab is open. To see the chart and the "not a PR" outcome, log at least two results for the same event (for example 12.84 and then 13.10 in the 100m).
+
 ## Screens (one route each)
 
 | Screen | Route | File |
@@ -24,6 +26,8 @@ npm run dev
 2. **Save an official profile link:** Home → Official results → *TFRRS, MileSplit or Athletic.net link?* (no: error under the field; yes: link added and "saved" message).
 
 ## Color theme (complementary: navy 220 and amber 35-42)
+
+Navy and amber sit opposite each other on the color wheel, so the amber PR bib and action buttons stand out against the calm navy and blue-gray base, which puts the eye on records and actions first.
 
 | Role | Where it is used | Value |
 |---|---|---|
@@ -52,6 +56,7 @@ npm run dev
 | Border on surface (field borders) | 4.37:1 | 3 |
 | Border on dominant (card edges) | 3.96:1 | 3 |
 | Error on surface | 6.47:1 | 4.5 |
+| Error on dominant | 5.85:1 | 4.5 |
 
 ## Design tokens
 

@@ -5,3 +5,5 @@
 }
 .event-grid__card h2 { margin-bottom: var(--space-1); }
 .event-grid__card p { margin: 0; }
+/* Padding makes each event link 36px tall (minimum target is 24px). */
+.event-grid__card h2 a { display: inline-block; padding: var(--space-1) 0; }

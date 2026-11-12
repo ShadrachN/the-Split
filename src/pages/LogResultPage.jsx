@@ -39,6 +39,8 @@ export default function LogResultPage() {
     // Decision: is the result valid?
     if (Object.keys(next).length > 0) {
       setErrors(next) // No: stay here and show the errors.
+      // Move focus to the first field to fix, so keyboard and screen-reader users land on it.
+      document.getElementById(Object.keys(next)[0])?.focus()
       return
     }
     // Yes: save it and go to the confirmation screen.

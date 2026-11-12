@@ -6,6 +6,7 @@ import BibCard from '../components/BibCard.jsx'
 import Card from '../components/Card.jsx'
 import Button from '../components/Button.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
+import './ResultSavedPage.css'
 
 export default function ResultSavedPage() {
   const { eventId } = useParams()
@@ -35,7 +36,7 @@ export default function ResultSavedPage() {
   const gap = previousBest && Math.abs(result.value - previousBest.value)
 
   return (
-    <div className="stack" style={{ maxWidth: 560 }}>
+    <div className="stack saved-page">
       <h1>{isPR ? 'New personal record!' : 'Result saved'}</h1>
       {isPR ? (
         <>
@@ -50,9 +51,10 @@ export default function ResultSavedPage() {
         <Card>
           <h2>{formatMark(event, result.value)} at {result.meet}</h2>
           <p>
-            Ranked {rank} of {eventResults.length} this season.
-            Your PR is still {formatMark(event, previousBest.value)}, {gap.toFixed(2)}
-            {event.type === 'time' ? ' seconds faster' : ' meters farther'}.
+            Ranked {rank} of {eventResults.length} this season.{' '}
+            {gap === 0
+              ? `That ties your PR of ${formatMark(event, previousBest.value)}.`
+              : `Your PR is still ${formatMark(event, previousBest.value)}, ${gap.toFixed(2)}${event.type === 'time' ? ' seconds faster' : ' meters farther'}.`}
           </p>
         </Card>
       )}
