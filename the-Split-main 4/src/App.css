@@ -1,0 +1,291 @@
+/* Colors: navy and amber (opposite each other on the color wheel) */
+:root {
+  --background: hsl(220, 33%, 96%);
+  --white: hsl(0, 0%, 100%);
+  --navy: hsl(220, 60%, 22%);
+  --amber: hsl(35, 90%, 32%);
+  --yellow: hsl(42, 95%, 68%);
+  --text: hsl(220, 40%, 10%);
+  --border: hsl(220, 15%, 50%);
+  --red: hsl(0, 72%, 42%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+a {
+  color: var(--amber);
+  font-weight: bold;
+}
+
+/* ---------- Layout ---------- */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.narrow {
+  max-width: 560px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background: var(--navy);
+}
+
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: var(--white);
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 16px;
+  padding-bottom: 4px;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid var(--yellow);
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid var(--amber);
+  border-radius: 8px;
+  background: var(--amber);
+  color: var(--white);
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: var(--white);
+  color: var(--amber);
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* ---------- Home page ---------- */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Event page ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.tab.active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title-row h1 {
+  margin: 0;
+}
+
+.event-top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Stack the bib and chart on small screens */
+@media (max-width: 720px) {
+  .event-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- PR bib ---------- */
+.bib {
+  background: var(--yellow);
+  border: 2px solid var(--text);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.bib p {
+  margin: 0;
+}
+
+.bib-label {
+  font-weight: bold;
+}
+
+.bib-mark {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* ---------- Chart ---------- */
+.chart svg {
+  width: 100%;
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 3;
+}
+
+.chart-dot {
+  fill: var(--navy);
+}
+
+.pr-dot {
+  fill: var(--yellow);
+  stroke: var(--text);
+  stroke-width: 2;
+}
+
+.chart-value {
+  font-weight: bold;
+}
+
+/* ---------- Results table ---------- */
+.results {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results th,
+.results td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pr-row {
+  font-weight: bold;
+}
+
+.badge {
+  margin-left: 8px;
+  padding: 0 8px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 4px;
+}
+
+/* ---------- Forms ---------- */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  font: inherit;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+}
+
+.hint {
+  margin: 0;
+}
+
+.error {
+  color: var(--red);
+  font-weight: bold;
+  margin: 8px 0 0;
+}
+
+.success {
+  font-weight: bold;
+}
+
+.message {
+  margin: 0 0 16px;
+}
+
+/* ---------- Official links ---------- */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
